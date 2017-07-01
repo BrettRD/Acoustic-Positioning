@@ -32,7 +32,7 @@ while 1;
 
 
 	printf("processing convolution\n")
-	conv1 = fftconv(croppedaudio, flip(ref1));
+	conv1 = fftconv(croppedaudio, cat(1,flip(ref1), flip(ref1)));
 
 	#conv2 = fftconv(noise, flip(ref2));
 
