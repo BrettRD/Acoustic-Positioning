@@ -5,29 +5,31 @@ more off;
 sampleLength = 20;	#5 seconds
 sampleRate = 44100;
 #attenuation = 100;
-ref1 = audioread ("ReferenceNoise1.wav");
-ref2 = audioread ("ReferenceNoise2.wav");
-ref3 = audioread ("ReferenceNoise3.wav");
+#ref1 = audioread ("ReferenceNoise1.wav");
+#ref2 = audioread ("ReferenceNoise2.wav");
+#ref3 = audioread ("ReferenceNoise3.wav");
 #ref4 = audioread ("ReferenceNoise4.wav");
 #ref5 = audioread ("ReferenceNoise5.wav");
 #noise = audioread ("BackgroundRealLoop1.wav");
-
+ref1long = audioread ("ref1Long.wav");
+ref2long = audioread ("ref2Long.wav");
+ref3long = audioread ("ref3Long.wav");
 
 #micSim = [];
 #	micSim = cat (1, micSim, ref1 + (0.3 * ref2) +  (0.01*ref3) + ref4);
 
-ref1long = ref1;
-ref2long = ref2;
-ref3long = ref3;
-
-for i=1:10
-	ref1long = cat(1, ref1long, ref1);
-	ref2long = cat(1, ref2long, ref2);
-	ref3long = cat(1, ref3long, ref3);
-endfor
+#ref1long = ref1;
+#ref2long = ref2;
+#ref3long = ref3;
+#
+#for i=1:10
+#	ref1long = cat(1, ref1long, ref1);
+#	ref2long = cat(1, ref2long, ref2);
+#	ref3long = cat(1, ref3long, ref3);
+#endfor
 
 printf("selecting mic\n")
-microphone = audiorecorder(sampleRate, 16, 1, 0);
+microphone = audiorecorder(sampleRate, 16, 1, 10);
 
 while 1;
 
